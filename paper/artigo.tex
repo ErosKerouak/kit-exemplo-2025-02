@@ -5,23 +5,70 @@
 
 \documentclass{article}
 
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage[round,authoryear,sort]{natbib}
+\usepackage{mathpazo}
+
+\input{paises.tex}
 
 
 
 
 % Corpo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-Meu artigo 
+\title{Análise de variação de temperatura dos ultimos 5 anos}
+
+\author{Eros Kerouak Cordeira Pareira}
+
+\maketitle 
+
+\begin{abstract}
+resumo
+\end{abstract}
+
+\section{Introdução}
+
+Meu artigo \citep{cheng2014impact}
+Isso foi analisado por \citet{cheng2014impact}
+
+\section{Metodologia}
+
+Ajustamos a uma reta aos 5 ultimos anos dos dados de temperatura media mensal para cada pais 
+
+A equação
+
+\begin{equation}
+T(t) = a t + b ,
+\label{eq:reta}
+\end{equation}
+
+\noindent
+onde $T$ é a temperatura, $t$ é o tempo, $a$ é o coeficiente angular e $b$ é o coeficiente linear.
+
+Utilizamos a equação 1 em um código python 
+
+\section{Resultados}
+
+Analisamos os dados 
+
+
+\begin{figure}[!htb]
+	\includegraphics{../figuras/variacao_temperatura.png}
+	\caption{
+		Variação de temperatura média mensal dos cinco últimos anos.
+		a) Países com as cinco maiores variações de temperatura .
+	}
+	\label{fig:variacao}
+\end{figure}
+
+Os resultados da ánalise de variação de temperatura \ref{fig:variacao}
+\Paises
 
 
 
-
-
-
-
-
-
-
-
-\end {document}
+\bibliographystyle{apalike}
+\bibliography{referencia.bib}
+\end{document}

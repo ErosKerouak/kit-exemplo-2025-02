@@ -3,14 +3,17 @@
 #alvo: pre-requisitos1
 #	comandos que usam os pre-requisitos para gerar o alvo
 
-all: paper/artigo.pdf resultados/numero_de_dados.txt 
+all: paper/artigo.pdf  resultados/numero_de_dados.txt 
 
 clean:
-	rm -r -f resultados dados figuras paper/artigo.pdf
+	rm -r -f resultados dados figuras *.pdf paper/paises.tex
 	
 
-paper/artigo.pdf: paper/artigo.tex figuras/variacao_temperatura.png
-		tectonic -X compile paper/paper/artigo.tex
+paper/artigo.pdf: paper/artigo.tex paper/paises.tex
+	tectonic -X compile paper/artigo.tex
+		
+paper/paises.tex: code/lista_paises.py
+	python code/lista_paises.py dados/temperatura > paper/paises.tex
 	
 resultados/numero_de_dados.txt: dados/temperature-data.zip
 	mkdir -p resultados 
