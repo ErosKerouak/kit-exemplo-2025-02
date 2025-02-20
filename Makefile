@@ -3,10 +3,14 @@
 #alvo: pre-requisitos1
 #	comandos que usam os pre-requisitos para gerar o alvo
 
-all: resultados/variacao_temperatura.csv resultados/numero_de_dados.txt figuras/variacao_temperatura.png
+all: paper/artigo.pdf resultados/numero_de_dados.txt 
 
 clean:
-	rm -r -f resultados dados figuras
+	rm -r -f resultados dados figuras paper/artigo.pdf
+	
+
+paper/artigo.pdf: paper/artigo.tex figuras/variacao_temperatura.png
+		tectonic -X compile paper/paper/artigo.tex
 	
 resultados/numero_de_dados.txt: dados/temperature-data.zip
 	mkdir -p resultados 
